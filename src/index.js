@@ -1,7 +1,18 @@
-// Import of a SVG
-// Импорт SVG
-import webpackLogo from './images/webpack-logo.svg'
-
-// Import of styles
+'use strict';
 // Импорт стилей
-import './styles/index.scss'
+import './styles/index.scss';
+
+const cards = document.querySelectorAll('.card');
+let hasFlippedCard = false;
+let firstCard, secondCard;
+
+function flipCard() {
+  this.classList.add('flip');
+
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    firstCard = this;
+  }
+}
+
+cards.forEach((card) => card.addEventListener('click', flipCard));

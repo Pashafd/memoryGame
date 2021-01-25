@@ -22,6 +22,7 @@ body {
   .container {
     padding: 0 3rem;
     height: 100vh;
+    perspective: 1000px;
   }
 
   .grid {
@@ -34,16 +35,36 @@ body {
   .card {
     background-color: $card-color;
     border: 2px solid #333;
+    border-radius: 50px;
+    margin: 5px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
 
     i {
       position: absolute;
       margin: auto;
       font-size: 4rem;
       color: rgb(230, 155, 18);
+      transform: rotateY(180deg);
+      backface-visibility: visible; 
     }
+  }
+
+  .flip {
+    transform: rotateY(180deg);
+
+    i {
+      backface-visibility: hidden;
+    }
+  }
+
+  .card:active {
+    transform: scale(0.96);
+    transition: transform 0.5s;
   }
 }

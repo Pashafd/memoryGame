@@ -14,7 +14,7 @@ module.exports = {
   output: {
     path: paths.build,
     filename: '[name].bundle.js',
-    publicPath: './'
+    publicPath: './',
   },
 
   // Customize the webpack build process
@@ -31,11 +31,8 @@ module.exports = {
         {
           from: paths.public,
           to: 'assets',
-          globOptions: {
-            ignore: ['*.DS_Store']
-          }
-        }
-      ]
+        },
+      ],
     }),
 
     // Generates an HTML file from a template
@@ -46,8 +43,8 @@ module.exports = {
       // template file
       // шаблон
       template: paths.src + '/template.html',
-      filename: 'index.html' // output file
-    })
+      filename: 'index.html', // output file
+    }),
   ],
 
   // Determine how modules within the project are treated
@@ -66,11 +63,11 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { sourceMap: true, importLoaders: 1 }
+            options: { sourceMap: true, importLoaders: 1 },
           },
           { loader: 'postcss-loader', options: { sourceMap: true } },
-          { loader: 'sass-loader', options: { sourceMap: true } }
-        ]
+          { loader: 'sass-loader', options: { sourceMap: true } },
+        ],
       },
 
       // Images: Copy image files to build folder
@@ -79,7 +76,7 @@ module.exports = {
 
       // Fonts and SVGs: Inline files
       // Шрифты и SVG
-      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' }
-    ]
-  }
+      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
+    ],
+  },
 }
