@@ -68,7 +68,6 @@ function resetBoard() {
 })();
 
 function showModal() {
-  // let modal = (document.querySelector('.modal').style.visibility = 'visible');
   let modal = (document.querySelector('.modal').style.display = 'flex');
 }
 
