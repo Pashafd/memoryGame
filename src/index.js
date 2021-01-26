@@ -4,8 +4,7 @@ import './styles/index.scss';
 
 const cards = document.querySelectorAll('.card');
 let hasFlippedCard = false;
-let firstCard, secondCard, thirdCard;
-let twoCards = [];
+let firstCard, secondCard;
 let lockBoard = false;
 
 function flipCard() {
@@ -27,6 +26,15 @@ function flipCard() {
 
 function checkForMatch() {
   let isMatch = firstCard.dataset.icon === secondCard.dataset.icon;
+
+  if (isMatch) {
+    showModal();
+    setTimeout(() => {
+      closeModal();
+      removeFlip();
+    }, 3000);
+  }
+
   isMatch ? disableCards() : unflipCards();
 }
 
@@ -52,11 +60,25 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
+(function RandomPositionCards() {
   cards.forEach((card) => {
     let randomPos = Math.floor(Math.random() * 12);
     card.style.order = randomPos;
   });
 })();
 
+function showModal() {
+  // let modal = (document.querySelector('.modal').style.visibility = 'visible');
+  let modal = (document.querySelector('.modal').style.display = 'flex');
+}
+
+function closeModal() {
+  let modal = (document.querySelector('.modal').style.display = 'none');
+}
+
+function removeFlip() {
+  cards.forEach((card) => {
+    card.classList.remove('flip');
+  });
+}
 cards.forEach((card) => card.addEventListener('click', flipCard));
