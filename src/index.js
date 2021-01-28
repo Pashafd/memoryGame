@@ -8,6 +8,8 @@ let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
 
+ramdomPosition();
+
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
@@ -53,13 +55,6 @@ function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
 }
-
-(function randomPositionCards() {
-  cards.forEach((card) => {
-    let randomPos = Math.floor(Math.random() * 12);
-    card.style.order = randomPos;
-  });
-})();
 
 function showModal() {
   modal.style.display = 'flex';
