@@ -42,13 +42,14 @@ function checkForMatch() {
 
 function unflipCards() {
   lockBoard = true;
+
   setTimeout(() => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
-
-    ramdomPosition();
     resetBoard();
   }, 1500);
+
+  setTimeout(ramdomPosition, 1850);
 }
 
 function resetBoard() {
