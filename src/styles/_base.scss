@@ -22,15 +22,15 @@ body {
 .memorySection {
   .container {
     padding: 0 3rem;
-    height: 100vh;
+    height: 80vh;
     perspective: 1000px;
   }
 
   .grid {
-    padding: 1rem;
+    padding: 1rem 3rem;
     display: grid;
-    grid-template-columns: repeat(4, calc(25% - 10px));
-    grid-template-rows: repeat(3, calc(33.333% - 10px));
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
 
   .card {
@@ -50,7 +50,7 @@ body {
       position: absolute;
       margin: auto;
       font-size: 4rem;
-      color: rgb(230, 155, 18);
+      color: $background-color;
       transform: rotateY(180deg);
       backface-visibility: visible;
     }
@@ -101,6 +101,41 @@ body {
   }
 }
 
+.footer {
+  height: 20vh;
+
+  .container {
+    width: 100%;
+    padding: 0 3rem;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    color: rgb(100, 98, 98);
+  }
+
+  a {
+    text-decoration: none;
+    display: block;
+    color: $background-color;
+  }
+
+  a:hover {
+    color: $card-color;
+  }
+}
+
 /* Media */
 
 @media (max-width: 568px) {
@@ -111,24 +146,43 @@ body {
       align-items: center;
       justify-items: center;
 
-      padding: 1rem;
+      padding: 0;
     }
 
     .card {
-      width: 90px;
-      height: 100px;
+      border-radius: 0;
+      height: calc(25vh - 10px);
+      width: calc(100% - 10px);
+
       i {
-        font-size: 2rem;
+        font-size: 3rem;
       }
+    }
+  }
+
+  .footer {
+    .container {
+      padding: 1rem 0;
+    }
+
+    .flex {
+      justify-content: space-between;
     }
   }
 }
 
-@media (min-width: 767px) {
+@media (max-width: 769px) {
   .memorySection {
+    height: 80vh;
     .grid {
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+
+    .card {
+      border-radius: 0;
+      height: calc(25vh - 10px);
+      width: calc(100% - 10px);
     }
 
     .modal {
