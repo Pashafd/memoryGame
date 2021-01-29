@@ -101,6 +101,27 @@ body {
 
     .modal-lose {
       display: none;
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+      height: 100vh;
+
+      h2 {
+        position: absolute;
+        top: 30%;
+        right: 40%;
+        font-size: 3rem;
+        text-align: center;
+      }
+
+      .explosion {
+        video {
+          display: block;
+          margin: auto;
+          width: 700px;
+        }
+      }
     }
   }
 }

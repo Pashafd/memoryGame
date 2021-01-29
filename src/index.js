@@ -79,7 +79,7 @@ function closeModalWin() {
 
 function showModalLose() {
   modal.style.display = 'flex';
-  modalLose.style.display = 'block';
+  modalLose.style.display = 'flex';
 }
 
 function closeModalLose() {
