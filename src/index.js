@@ -31,10 +31,8 @@ function checkForMatch() {
   let isMatch = firstCard.dataset.icon === secondCard.dataset.icon;
 
   if (isMatch) {
-    showModal();
-    setTimeout(() => {
-      closeModal();
-    }, 3000);
+    setTimeout(showModal, 1000);
+    setTimeout(closeModal, 4000);
   }
 
   unflipCards();
@@ -49,7 +47,7 @@ function unflipCards() {
     resetBoard();
   }, 1500);
 
-  setTimeout(ramdomPosition, 1850);
+  // setTimeout(ramdomPosition, 1850);
 }
 
 function resetBoard() {
