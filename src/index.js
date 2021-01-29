@@ -7,6 +7,7 @@ let modal = document.querySelector('.modal');
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
+let once;
 
 ramdomPosition();
 
@@ -45,9 +46,9 @@ function unflipCards() {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
     resetBoard();
-  }, 1500);
 
-  // setTimeout(ramdomPosition, 1850);
+    once = true; //for randomPosition cards
+  }, 1500);
 }
 
 function resetBoard() {
@@ -71,3 +72,13 @@ function ramdomPosition() {
 }
 
 cards.forEach((card) => card.addEventListener('click', flipCard));
+
+cards.forEach((card) =>
+  card.addEventListener('transitionend', function () {
+    if (once) {
+      ramdomPosition();
+
+      once = false;
+    }
+  })
+);
