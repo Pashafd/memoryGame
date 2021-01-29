@@ -2,6 +2,7 @@
 // Импорт стилей
 import './styles/index.scss';
 
+//Variables
 const cards = document.querySelectorAll('.card');
 let modal = document.querySelector('.modal');
 let hasFlippedCard = false;
@@ -9,6 +10,7 @@ let firstCard, secondCard;
 let lockBoard = false;
 let once;
 
+//Functions
 ramdomPosition();
 
 function flipCard() {
@@ -30,6 +32,8 @@ function flipCard() {
 
 function checkForMatch() {
   let isMatch = firstCard.dataset.icon === secondCard.dataset.icon;
+  let isBombs =
+    firstCard.dataset.icon == 'bomb' && secondCard.dataset.icon == 'bomb';
 
   if (isMatch) {
     setTimeout(showModal, 1000);
@@ -71,6 +75,7 @@ function ramdomPosition() {
   });
 }
 
+//Listeners
 cards.forEach((card) => card.addEventListener('click', flipCard));
 
 cards.forEach((card) =>
