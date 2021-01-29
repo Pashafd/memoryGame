@@ -5,6 +5,8 @@ import './styles/index.scss';
 //Variables
 const cards = document.querySelectorAll('.card');
 let modal = document.querySelector('.modal');
+let modalWin = document.querySelector('.modal-inner');
+let modalLose = document.querySelector('.modal-lose');
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
@@ -31,13 +33,18 @@ function flipCard() {
 }
 
 function checkForMatch() {
-  let isMatch = firstCard.dataset.icon === secondCard.dataset.icon;
   let isBombs =
     firstCard.dataset.icon == 'bomb' && secondCard.dataset.icon == 'bomb';
+  let isMatch = firstCard.dataset.icon === secondCard.dataset.icon && !isBombs;
 
   if (isMatch) {
-    setTimeout(showModal, 1000);
-    setTimeout(closeModal, 4000);
+    setTimeout(showModalWin, 1000);
+    setTimeout(closeModalWin, 4000);
+  }
+
+  if (isBombs) {
+    setTimeout(showModalLose, 1000);
+    setTimeout(closeModalLose, 4000);
   }
 
   unflipCards();
@@ -60,12 +67,24 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
-function showModal() {
+function showModalWin() {
   modal.style.display = 'flex';
+  modalWin.style.display = 'block';
 }
 
-function closeModal() {
+function closeModalWin() {
   modal.style.display = 'none';
+  modalWin.style.display = 'none';
+}
+
+function showModalLose() {
+  modal.style.display = 'flex';
+  modalLose.style.display = 'block';
+}
+
+function closeModalLose() {
+  modal.style.display = 'none';
+  modalLose.style.display = 'none';
 }
 
 function ramdomPosition() {
