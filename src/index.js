@@ -1,4 +1,3 @@
-'use strict';
 // Импорт стилей
 import './styles/index.scss';
 
@@ -100,9 +99,13 @@ cards.forEach((card) => card.addEventListener('click', flipCard));
 cards.forEach((card) =>
   card.addEventListener('transitionend', function () {
     if (once) {
+      card.removeEventListener('click', flipCard);
       ramdomPosition();
 
       once = false;
+      setTimeout(() => {
+        card.addEventListener('click', flipCard);
+      }, 1000);
     }
   })
 );
