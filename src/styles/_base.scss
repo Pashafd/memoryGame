@@ -26,8 +26,6 @@ body {
   }
 
   .grid {
-    padding-right: 3rem;
-    padding-left: 3rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -108,20 +106,12 @@ body {
       position: relative;
       height: 100vh;
 
-      h2 {
-        position: absolute;
-        top: 30%;
-        right: 40%;
-        font-size: 3rem;
-        text-align: center;
-      }
-
       .explosion {
-        video {
-          display: block;
-          margin: auto;
-          width: 700px;
-        }
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
@@ -164,42 +154,8 @@ body {
 
 /* Media */
 
-@media (max-width: 568px) {
-  .memorySection {
-    .grid {
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      align-items: center;
-      justify-items: center;
-
-      padding: 0;
-    }
-
-    .card {
-      border-radius: 0;
-      height: calc(25vh - 10px);
-      width: calc(100% - 10px);
-
-      i {
-        font-size: 3rem;
-      }
-    }
-  }
-
-  .footer {
-    .container {
-      padding: 0 1rem;
-    }
-
-    .flex {
-      justify-content: space-between;
-    }
-  }
-}
-
 @media (max-width: 769px) {
   .memorySection {
-    height: 80vh;
     .grid {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(4, 1fr);
@@ -225,15 +181,54 @@ body {
   }
 }
 
+@media (max-width: 569px) {
+  .memorySection {
+    height: 80vh;
+
+    .container {
+      padding: 0 0.5rem;
+    }
+
+    .card {
+      border-radius: 0;
+      height: calc(25vh - 10px);
+      width: calc(100% - 10px);
+
+      i {
+        font-size: 3rem;
+      }
+    }
+
+    .modal {
+      .modal-inner {
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .footer {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .flex {
+      justify-content: space-between;
+    }
+  }
+}
+
 /* Animations */
 
 @keyframes blur {
   from {
     text-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff, 0px 0px 25px #fff,
-      0px 0px 25px #fff, 0px 0px 25px #fff, 0px 0px 25px #fff, 0px 0px 25px #fff,
-      0px 0px 25px #fff, 0px 0px 50px #fff, 0px 0px 50px #fff,
-      0px 0px 50px #7b96b8, 0px 0px 150px #7b96b8, 0px 10px 100px #7b96b8,
-      0px 10px 100px #7b96b8, 0px 10px 100px #7b96b8, 0px 10px 100px #7b96b8,
-      0px -10px 100px #7b96b8, 0px -10px 100px #7b96b8;
+      0px 0px 25px #fff, 0px 0px 50px #7b96b8, 0px 0px 150px #7b96b8,
+      0px 10px 100px #7b96b8;
   }
 }

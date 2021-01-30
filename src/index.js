@@ -89,7 +89,7 @@ function closeModalLose() {
 
 function ramdomPosition() {
   cards.forEach((card) => {
-    let randomPos = Math.floor(Math.random() * 12);
+    let randomPos = Math.floor(Math.random() * 10);
     card.style.order = randomPos;
   });
 }
