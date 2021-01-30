@@ -1,13 +1,14 @@
-const paths = require('./paths')
+const paths = require('./paths');
 
-const webpack = require('webpack')
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
+const webpack = require('webpack');
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   // Set the mode to development or production
   // Установка режима разработки или продакшна
-  mode: 'development',
+  // mode: 'development',
+  mode: 'production',
 
   // Control how source maps are generated
   // Управление созданием карт источников
@@ -29,4 +30,4 @@ module.exports = merge(common, {
     // Обновлять только при "горячей" перезагрузке
     new webpack.HotModuleReplacementPlugin(),
   ],
-})
+});

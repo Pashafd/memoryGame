@@ -70,8 +70,6 @@ function resetBoard() {
 function showModalWin() {
   modal.style.display = 'flex';
   modalWin.style.display = 'block';
-
-  createWinningWords();
 }
 
 function closeModalWin() {
