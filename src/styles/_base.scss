@@ -81,16 +81,11 @@ body {
 
     .modal-inner {
       display: none;
-      animation: slideFromTop 1s ease-in;
-      h2 {
+      animation: blur 2s ease;
+
+      .h2 {
         font-size: 3rem;
         text-align: center;
-
-        span {
-          display: inline-block;
-          font-weight: 600;
-          animation: letterDown 2s ease;
-        }
       }
 
       p {
@@ -226,31 +221,13 @@ body {
 
 /* Animations */
 
-@keyframes letterDown {
-  50% {
-    transform: translateY(10px) rotate(0);
-  }
-  100% {
-    transform: translateY(10px) rotate(-360deg);
-    color: $card-color;
-  }
-}
-
-@keyframes slideFromTop {
-  0% {
-    transform: translateY(-1000%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes transparent {
-  0% {
-  }
-
-  100% {
-    background: transparent;
+@keyframes blur {
+  from {
+    text-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff, 0px 0px 25px #fff,
+      0px 0px 25px #fff, 0px 0px 25px #fff, 0px 0px 25px #fff, 0px 0px 25px #fff,
+      0px 0px 25px #fff, 0px 0px 50px #fff, 0px 0px 50px #fff,
+      0px 0px 50px #7b96b8, 0px 0px 150px #7b96b8, 0px 10px 100px #7b96b8,
+      0px 10px 100px #7b96b8, 0px 10px 100px #7b96b8, 0px 10px 100px #7b96b8,
+      0px -10px 100px #7b96b8, 0px -10px 100px #7b96b8;
   }
 }
