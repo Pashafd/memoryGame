@@ -44,7 +44,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    transform: scale(1);
+    // transform: scale(1);
     transform-style: preserve-3d;
     transition: transform 0.5s ease;
 
@@ -68,7 +68,7 @@ body {
   }
 
   .card:active {
-    transform: scale(0.96);
+    //   transform: scale(0.96);
     transition: transform 0.5s;
   }
 

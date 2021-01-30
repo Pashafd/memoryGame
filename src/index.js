@@ -94,18 +94,22 @@ function ramdomPosition() {
 }
 
 //Listeners
-cards.forEach((card) => card.addEventListener('click', flipCard));
+const cardLisen = () => {
+  cards.forEach((card) => card.addEventListener('click', flipCard));
+};
+cardLisen();
 
 cards.forEach((card) =>
   card.addEventListener('transitionend', function () {
+    if (secondCard) {
+      cards.forEach((card) => card.removeEventListener('click', flipCard));
+    }
+
     if (once) {
-      card.removeEventListener('click', flipCard);
       ramdomPosition();
 
+      setTimeout(cardLisen, 510);
       once = false;
-      setTimeout(() => {
-        card.addEventListener('click', flipCard);
-      }, 1000);
     }
   })
 );
